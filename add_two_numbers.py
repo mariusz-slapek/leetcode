@@ -1,5 +1,4 @@
 # Not good solution
-
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, val=0, next=None):
@@ -32,10 +31,9 @@ class Solution(object):
         sum_ls = l1_sum + l2_sum
 
         output = ListNode()
+        save = output
         for i in range(len(str(sum_ls))):
             output.val = int(str(sum_ls)[-1 - i])
-            if(i == 0):
-                save = output
             if(i != len(str(sum_ls)) -1):
                 output.next = ListNode()
                 output = output.next
