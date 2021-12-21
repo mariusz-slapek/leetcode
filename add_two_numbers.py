@@ -41,3 +41,32 @@ class Solution(object):
         
         return save
 
+# Better solution
+
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        
+        output = ListNode(0)
+        save = output
+        carry = 0
+        
+        
+        while l1 or l2 or carry:
+            v_l1 = l1.val if l1 else 0
+            v_l2 = l2.val if l2 else 0
+            
+            carry, val = divmod(v_l1 + v_l2 + carry, 10)
+            
+            output.next = ListNode(val) 
+            output = output.next
+            
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+    
+        
+        return save.next
